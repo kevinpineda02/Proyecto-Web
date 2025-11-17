@@ -329,7 +329,7 @@ h1, nav, h2 {
 /* Tercer Contenedor*/
 
 .content-three{
- height: 155vh;
+ height: 175vh;
  display: flex;
  align-items: center;
  justify-content: center;
@@ -346,7 +346,7 @@ h1, nav, h2 {
 .team-section {
     width: 100%;
     max-width: 1200px;
-    padding: 0px;
+    padding: 15px;
     position: relative;
     z-index: 2;
 }
@@ -354,8 +354,9 @@ h1, nav, h2 {
 .team-title {
     text-align: center;
     font-size: 2.5rem;
+    padding-top: 0px;
     color: var(--text-primary);
-    padding-bottom: 100px;
+    padding-bottom: 80px;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -418,18 +419,23 @@ h1, nav, h2 {
     border: 3px solid rgba(79, 172, 254, 0.5);
     position: relative;
     z-index: 1;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .team-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     transition: transform 0.3s ease;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.team-card:hover .team-image img {
-    transform: scale(1.1);
-}
+
 
 .team-info {
     position: relative;
@@ -459,5 +465,384 @@ h1, nav, h2 {
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
+}
+
+/* === ESTILOS BASE PARA MENÚ HAMBURGUESA === */
+/* Ocultar hamburguesa en desktop por defecto */
+.hamburger-menu {
+    display: none;
+}
+
+/* Navegación normal en desktop */
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0;
+    position: static;
+    transform: none;
+    background: transparent;
+    backdrop-filter: none;
+    height: auto;
+    width: auto;
+}
+
+/* ========== RESPONSIVE DESIGN - 768px Y MENORES ========== */
+@media screen and (max-width: 768px) {
+    
+    /* Variables responsive */
+    :root {
+        --content-three-bg-pos-y: 60%;
+    }
+    
+    /* Encabezado responsive con hamburguesa */
+    .head {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        padding: 0 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    .logo {
+        display: none;
+    }
+    
+    /* Botón hamburguesa */
+    .hamburger-menu {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+        transition: transform 0.3s ease;
+    }
+    
+    .hamburger-line {
+        width: 100%;
+        height: 3px;
+        background: var(--text-primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+    
+    /* Animación del botón hamburguesa */
+    .hamburger-menu.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger-menu.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .hamburger-menu.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Navegación móvil */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.95) 100%);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    .nav-menu a {
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 15px 30px;
+        border-radius: 10px;
+        background: rgba(79,172,254,0.1);
+        border: 2px solid rgba(79,172,254,0.3);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        min-width: 200px;
+        text-align: center;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a:focus {
+        background: rgba(79,172,254,0.2);
+        border-color: rgba(79,172,254,0.6);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(79,172,254,0.3);
+    }
+    
+    /* Prevenir scroll cuando el menú está abierto */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Primer contenedor responsive */
+    .content-one {
+        height: 100vh;
+        padding-top: 120px;
+        background-attachment: scroll;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .content-title {
+        width: 90%;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+    
+    .title h1 {
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+    
+    .description {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    
+ 
+    
+
+.description span{
+  display: block;               
+  line-height: 1.4;
+  text-align: justify;          
+  text-align-last: center;        
+  word-break: normal;          
+  overflow-wrap: normal;        
+  hyphens: none;                
+}
+
+
+    /* Segundo contenedor responsive */
+    .content-two {
+        height: auto;
+        min-height: 100vh;
+        padding: 120px 20px 40px;
+        background-attachment: scroll;
+    }
+    
+    .content-two h2 {
+        font-size: 1.8rem;
+        padding-bottom: 40px;
+        padding-top: 20px;
+    }
+    
+    .info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+        padding: 0;
+    }
+    
+    .info-box {
+        order: 1;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    
+    .info-box span {
+        width: 95%;
+        justify-content: center;
+        font-size: 1rem;
+        line-height: 1.4;
+        text-align: justify;          
+        text-align-last: center;        
+        word-break: normal;          
+        overflow-wrap: normal;        
+        hyphens: none; 
+        display: block;               
+    }
+    
+    .card {
+        order: 2;
+        max-width: none;
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    
+    /* Tercer contenedor responsive */
+    .content-three {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 15px 40px;
+        background-attachment: scroll;
+    }
+    
+    .team-section {
+        padding: 20px 10px;
+        max-width: 100%;
+    }
+    
+    .team-title {
+        font-size: 2rem;
+        padding-bottom: 40px;
+        margin-bottom: 20px;
+    }
+    
+    .team-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .team-card {
+        padding: 25px 15px;
+        margin: 0 auto;
+        max-width: 350px;
+        width: 100%;
+    }
+    
+    .team-image {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .team-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+    
+    .team-role {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .team-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    /* Ajustes generales responsive */
+    h1, nav, h2 {
+        text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Scroll suave para móviles */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Mejorar touch targets */
+    nav a, .card {
+        touch-action: manipulation;
+    }
+    
+    /* Ocultar elementos decorativos en móvil si es necesario */
+    .content-one::after,
+    .content-two::after,
+    .content-three::after {
+        opacity: 0.5;
+    }
+}
+
+/* ========== RESPONSIVE EXTRA PEQUEÑO - 480px Y MENORES ========== */
+@media screen and (max-width: 480px) {
+    
+    .head {
+        padding: 8px 0;
+    }
+    
+    .logo {
+        width: 30px;
+        margin-bottom: 8px;
+    }
+    
+    nav a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .content-one {
+        padding-top: 100px;
+    }
+    
+    .title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    .content-two {
+        padding: 100px 15px 30px;
+    }
+    
+    .content-two h2 {
+        font-size: 1.6rem;
+        padding-bottom: 30px;
+    }
+    
+    .info-box span {
+        font-size: 0.9rem;
+        padding-left: 5px;
+    }
+    
+    .card {
+        height: 180px;
+    }
+    
+    .content-three {
+        padding: 60px 10px 30px;
+    }
+    
+    .team-title {
+        font-size: 1.8rem;
+        padding-bottom: 30px;
+    }
+    
+    .team-card {
+        padding: 20px 12px;
+        max-width: 300px;
+    }
+    
+    .team-image {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .team-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .team-role {
+        font-size: 0.85rem;
+    }
+    
+    .team-description {
+        font-size: 0.8rem;
+    }
 }
 
