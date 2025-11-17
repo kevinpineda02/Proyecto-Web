@@ -5,6 +5,47 @@
     --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #004af8 100%);
 }
 
+/* Efectos de fondo adicionales */
+.content-one::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(79,172,254,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0,242,254,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.content-two::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(79,172,254,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0,242,254,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.content-three::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(79,172,254,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
 
 *{
     margin: 0;
@@ -14,7 +55,8 @@
 }
 
 body{
-    background: var(--background);
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 25%, #000 50%, #1a1a1a 75%, #0c0c0c 100%);
+    background-attachment: fixed;
     /* Ocultar scrollbar */
     overflow-x: hidden;
     scrollbar-width: none; /* Firefox */
@@ -82,16 +124,22 @@ nav, a{
     flex-direction: column;
     justify-content: center;
     color: var(--text-primary);
-    background-image: url(/Fondos/Contenedor-1.png);
+    background-image: 
+    linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(79,172,254,0.1) 30%, rgba(0,0,0,0.5) 100%),
+    url(/Fondos/Contenedor-1.png);   
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-
+    background-attachment: fixed;
+    position: relative;
 }
 
 /*Tamaño del contenedor del titulo y subtitulo*/
 .content-title{
     width: 50%;
     padding-left: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 /*Medidas del contenedor del titulo y subtitulo*/
@@ -129,23 +177,37 @@ nav, a{
 /*Segundo Contenedor*/
 
 .content-two{
-    position: relative; /* necesario para que el video y el overlay se posicionen dentro */
-    height: 105vh;
+    height: 125vh;
     display: flex;
-    flex-direction: column;
     color: var(--text-primary);
-    background-image: url();
+    background-image: 
+    linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(79,172,254,0.1) 30%, rgba(0,0,0,0.5) 100%),
+    url(/Fondos/Contenedor-2.png);   
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    overflow: hidden; /* recorta el video si se desvía */
+    background-attachment: fixed;
+    position: relative;
+    flex-direction: column;
 }
 
 .content-two h2{
     padding-bottom: 120px;
     text-align: center;
-    padding-top: 65px;
+    padding-top: 105px;
     font-size: 2.0rem;
 }
+
+.content-two p {
+     background-image: var(--accent-gradient);
+     background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+
+
 
 .info-box {
   opacity: 0;
@@ -158,7 +220,7 @@ nav, a{
   top: 0;
 }
 
-.info-box p{
+.info-box span{
   max-width: 2000px;
   width: 80%;
   display: block;               
@@ -169,10 +231,12 @@ nav, a{
   overflow-wrap: normal;        
   hyphens: none;              
   font-size: 1.1rem;
-  padding-left: 15px;
+  padding-left: 25px;
 }
 
-
+.separar{
+  padding-top: 15px;
+}
 
 .image-box{
   width: 50%;
@@ -192,15 +256,7 @@ nav, a{
 
 }
 
-/* Overlay oscuro sobre el video para mayor contraste */
-.content-two::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.3); /* overlay más claro para que el gradiente destaque */
-    z-index: 1;
-    pointer-events: none;
-}
+
 
 /* Contenido por encima del video y del overlay */
 .content-two > *{
@@ -273,9 +329,135 @@ h1, nav, h2 {
 /* Tercer Contenedor*/
 
 .content-three{
- height: 100vh;
+ height: 155vh;
  display: flex;
- background-image: url(/Portal/Fondos/Contenedor-3.jpg);   
+ align-items: center;
+ justify-content: center;
+ background-image: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(79,172,254,0.1) 30%, rgba(0,0,0,0.5) 100%), 
+ url(/Fondos/Contenedor-3.png);   
  background-repeat: no-repeat;
  background-size: cover;
+ background-position: center var(--content-three-bg-pos-y);
+ background-attachment: fixed;
+ position: relative;
 }
+
+/* Estilos para la sección del equipo */
+.team-section {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0px;
+    position: relative;
+    z-index: 2;
+}
+
+.team-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    padding-bottom: 100px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.team-title span {
+    background-image: var(--accent-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.team-card {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(79, 172, 254, 0.3);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(79,172,254,0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.team-card:hover::before {
+    opacity: 1;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(79, 172, 254, 0.6);
+    box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);
+}
+
+.team-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(79, 172, 254, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-image img {
+    transform: scale(1.1);
+}
+
+.team-info {
+    position: relative;
+    z-index: 1;
+}
+
+.team-info h3 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.team-role {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    background-image: var(--accent-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.team-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
