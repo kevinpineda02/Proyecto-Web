@@ -110,10 +110,10 @@ nav, a{
 }
 
 .logo{
-    width: 40px;
+    width: 60px;
     position: absolute;
     left: 20px;
-    top: 5px;
+    padding-top: 15px;
 }
 
 
@@ -171,7 +171,7 @@ nav, a{
 }
 
 .description, .title{
-   font-size: 1.2rem;
+   font-size: 1.8rem;
 }
 
 /*Segundo Contenedor*/
@@ -195,7 +195,7 @@ nav, a{
     padding-bottom: 120px;
     text-align: center;
     padding-top: 105px;
-    font-size: 2.0rem;
+    font-size: 2.6rem;
 }
 
 .content-two p {
@@ -222,7 +222,7 @@ nav, a{
 
 .info-box span{
   max-width: 2000px;
-  width: 80%;
+  width: 99%;
   display: block;               
   line-height: 1.4;
   text-align: justify;          
@@ -230,7 +230,7 @@ nav, a{
   word-break: normal;          
   overflow-wrap: normal;        
   hyphens: none;              
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding-left: 25px;
 }
 
@@ -275,61 +275,12 @@ h1, nav, h2 {
     padding-right: 20px;
     padding-bottom: 30px;
 }
-
-.card{
- max-width: 500px;
- height: 240px;
- width: 70%;
- border: 2px solid #004af8;
- border-radius: 15px;
- background: rgba(0, 0, 0, 0.7);
- backdrop-filter: blur(10px);
- box-shadow: 0 8px 32px rgba(79, 172, 254, 0.2);
- transition: transform 0.3s ease, box-shadow 0.3s ease;
- overflow: hidden;
- position: relative;
- z-index: 10;
-}
-
-
-
-.card:hover {
- box-shadow: 0 12px 40px rgba(79, 172, 254, 0.3);
-}
-
-.card video {
- width: 100%;
- height: 100%;
- padding: 0;
- margin: 0;
- object-fit: cover;
- position: relative;
- z-index: 20;
- pointer-events: auto;
- cursor: pointer;
-}
-
-
-.card-title {
- font-size: 1.4rem;
- font-weight: 600;
- margin-bottom: 10px;
- background-image: var(--accent-gradient);
- background-clip: text;
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
-}
-
-.card-description {
- font-size: 0.95rem;
- line-height: 1.5;
- opacity: 0.9;
-}
+/* Reglas de la tarjeta de video eliminadas (card) */
 
 /* Tercer Contenedor*/
 
 .content-three{
- height: 175vh;
+ height: 125vh;
  display: flex;
  align-items: center;
  justify-content: center;
@@ -486,6 +437,115 @@ h1, nav, h2 {
     backdrop-filter: none;
     height: auto;
     width: auto;
+}
+
+
+.site-footer{
+    width: 100%;
+    
+    background: var(--background);
+    box-sizing: border-box;
+    box-shadow: 0 -4px 6px rgba(255, 255, 255, 0.06);
+    padding: 28px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.site-footer .footer-container{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.site-footer .footer-col{
+    min-width: 200px;
+    max-width: 320px;
+    box-sizing: border-box;
+}
+
+.site-footer .footer-logo{
+    width: 48px;
+    height: auto;
+    display: block;
+    padding-bottom: 8px;
+}
+
+.site-footer h4{
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding-bottom: 8px;
+}
+
+.site-footer p{
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+}
+
+.site-footer ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.site-footer ul li{
+    padding-bottom: 6px;
+}
+
+.site-footer a{
+    color: var(--text-primary);
+    text-decoration: none;
+    opacity: 0.95;
+}
+
+.site-footer .social-icons{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.site-footer .social-link{
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.04);
+    color: var(--text-primary);
+}
+
+.site-footer .footer-bottom{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.site-footer .footer-legal{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Responsive adjustments for footer */
+@media screen and (max-width: 768px) {
+    .site-footer .footer-container{
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .site-footer .footer-bottom{
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+
+    }
 }
 
 /* ========== RESPONSIVE DESIGN - 768px Y MENORES ========== */
@@ -682,14 +742,7 @@ h1, nav, h2 {
         display: block;               
     }
     
-    .card {
-        order: 2;
-        max-width: none;
-        width: 100%;
-        height: 200px;
-        margin: 0 auto;
-        margin-bottom: 50px;
-    }
+    /* Responsive .card removed (card HTML eliminado) */
     
     /* Tercer contenedor responsive */
     .content-three {
@@ -755,7 +808,7 @@ h1, nav, h2 {
     }
     
     /* Mejorar touch targets */
-    nav a, .card {
+    nav a {
         touch-action: manipulation;
     }
     
@@ -810,9 +863,7 @@ h1, nav, h2 {
         padding-left: 5px;
     }
     
-    .card {
-        height: 180px;
-    }
+    /* .card height removed for extra small screens (card deleted) */
     
     .content-three {
         padding: 60px 10px 30px;

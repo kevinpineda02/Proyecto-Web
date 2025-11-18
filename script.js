@@ -72,4 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Añadir año dinámico al footer
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 });
